@@ -1,35 +1,27 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Error404 from 'containers/errors/Error404';
-import Home from 'containers/pages/Home';
-import Cases from 'containers/pages/Cases';
-import Services from 'containers/pages/Services';
-import About from 'containers/pages/About';
-import Careers from 'containers/pages/Careers';
-import Blog from 'containers/pages/Blog';
-import Contact from 'containers/pages/Contact';
 import store from './store';
 import { Provider } from 'react-redux';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+import AnimatedRoutes from 'AnimatedRoutes';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
   return (
-    <Provider store={store}>
-      <Router>
-        <Routes>
-          {/* Error Display */}
-          <Route path="*" element={<Error404 />} />
-
-          {/* Home Display */}
-          <Route path="/" element={<Home />} />
-          <Route path="/casos" element={<Cases />} />
-          <Route path="/servicios" element={<Services />} />
-          <Route path="/nosotros" element={<About />} />
-          <Route path="/carreras" element={<Careers />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/contacto" element={<Contact />} />
-        </Routes>
-      </Router>
-    </Provider>
-    
+    <HelmetProvider>
+      <Helmet>
+        <title>Luna</title>
+        <meta name="description" content="Luna es mi empresa si? ok" />
+        <meta name="keywords" content="Comercio de cursos, Comercio de inmuebles, Portfolio personal" />
+        <meta name="robots" content="all" />
+        <link rel="canonical" href="https://google.com" />
+        <meta name="author" content="Valentin Quijano" />
+        <meta name="publisher" content="Valentin Quijano" />
+      </Helmet>
+      <Provider store={store}>
+        <Router>
+          <AnimatedRoutes />
+        </Router>
+      </Provider>
+    </HelmetProvider>
   );
 }
 

@@ -3,5 +3,49 @@
 @tailwind utilities;
 
 .active {
-	@apply border-yellow-500
+	@apply border-yellow-button
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    z-index: -1;
+    height: 30px;
+  }
+  
+/* Track */
+::-webkit-scrollbar-track {
+border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #FEE672;
+opacity: 10px;
+border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb:hover{
+background: #c9c9c9;
+opacity: 10px;
+border-radius: 10px;
+}
+
+.rec.rec-arrow {
+  background-color: #0B1014;
+  color: #eeeeee;
+  }
+  
+.rec.rec-arrow:hover {
+    background-color: #393b3f;
+}
+  
+.rec.rec-arrow:disabled {
+    visibility: hidden;
+}
+    
+.rec-carousel-item:focus {
+  outline: none;
+  box-shadow: inset 0 0 1px 1px lightgrey;
+  background-color: #eaeaea;
 }
